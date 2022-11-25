@@ -1,19 +1,15 @@
+import 'package:counterapp/View/HomeScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const Main());
 }
 
-class Main extends StatefulWidget {
+class Main extends StatelessWidget {
   const Main({Key? key}) : super(key: key);
 
   @override
-  State<Main> createState() => _MainState();
-}
-
-class _MainState extends State<Main> {
-  @override
   Widget build(BuildContext context) {
-    return Container();
+    return HomeScreen();
   }
 }
