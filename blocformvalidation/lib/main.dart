@@ -1,3 +1,4 @@
+import 'package:blocformvalidation/Screens/Welcome%20Screen/Welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +10,14 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(toolbarHeight: 0,backgroundColor: Colors.blueGrey),
+        body: SafeArea(
+          child: WelcomeScreen(),
+        ),
+      ),
+    );
   }
 }
