@@ -16,6 +16,7 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   final cubit = CounterCubit(10);
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -23,14 +24,14 @@ class _MainState extends State<Main> {
     cubit.close();
     print("Cubit closed");
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_)=>cubit ,   // CounterCubit(10)
+      create: (_) => cubit, // CounterCubit(10)
       child: MaterialApp(
-        home: Home()
+          home: Home()
       ),
     );
   }
 }
-
