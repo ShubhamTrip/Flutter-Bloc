@@ -19,7 +19,7 @@ class _MainState extends State<Main> {
     return MaterialApp(
       title: Strings.appName,
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.splashRoute,
+      initialRoute: Routes.homeRoute,
       onGenerateRoute: RouteGenerate.generateRoute,
     );
   }
