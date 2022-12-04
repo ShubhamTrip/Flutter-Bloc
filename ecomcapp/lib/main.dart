@@ -1,3 +1,5 @@
+import 'package:ecomcapp/src/ui/route_gengerator.dart';
+import 'package:ecomcapp/src/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +11,11 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const MaterialApp(
+      title: Strings.appName,
+      debugShowCheckedModeBanner: false,
+      initialRoute: Routes.productsscreen,
+      onGenerateRoute: RouteGenerator.generateRoute,
+    );
   }
 }
