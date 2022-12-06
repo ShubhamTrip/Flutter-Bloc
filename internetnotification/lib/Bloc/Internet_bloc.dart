@@ -9,7 +9,7 @@ class InternetBloc extends Bloc<InternetEvent, InternetState> {
   StreamSubscription? _subscription;
   Connectivity _connectivity = Connectivity();
 
-  InternetBloc() : super(InternetDisconnectedState()) {
+  InternetBloc() : super(InternetInitialState()) {
     on<InternetDisconnectedEvent>(
         ((event, emit) => emit(InternetDisconnectedState())));
     on<InternetConnectedEvent>(
