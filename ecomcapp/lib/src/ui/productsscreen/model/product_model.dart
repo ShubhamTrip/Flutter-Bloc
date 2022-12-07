@@ -44,13 +44,13 @@ class ProductModel {
 
 class CardData {
   String title;
-  String description;
   String leadingImage;
-  DateTime date;
+  double price;
+  int id;
 
   CardData(
       {required this.title,
-      required this.description,
+      required this.price,
       required this.leadingImage,
-      required this.date});
+      required this.id});
 }

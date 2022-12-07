@@ -1,8 +1,9 @@
+import 'package:ecomcapp/src/widgets.dart/appBar.dart';
 import 'package:flutter/material.dart';
 
-import '../product_description/model/product_model.dart';
-import '../product_description/repository/product_repo.dart';
-import '../product_description/widgets/grid_card.dart';
+import 'model/product_model.dart';
+import 'repository/product_repo.dart';
+import 'widgets/grid_card.dart';
 
 class ProductsScreen extends StatefulWidget {
   @override
@@ -26,22 +27,34 @@ class _ProductsScreenState extends State<ProductsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: const Text("Grid View"),
-          toolbarHeight: 50,
-          backgroundColor: Colors.indigo),
-      body: GridView.builder(
-        itemCount: model?.length,
-        itemBuilder: (ctx, index) {
-          return GridCard(
-            product: model![index].title.toString().substring(0, 10),
-            date: DateTime.now(),
-            desciption: model![index].description.toString().substring(0, 30),
-            imgsource: model![index].image.toString(),
-          );
+      appBar: CustomAppBar(title: "Shop APP", onPress: () {}),
+      body: FutureBuilder(
+        future: provideData(),
+        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+          if (snapshot.hasError) {
+            return Center(
+              child: Text("Error"),
+            );
+          } else if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return GridView.builder(
+              itemCount: model?.length,
+              itemBuilder: (ctx, index) {
+                return GridCard(
+                  id: model![index].id,
+                  product: model![index].title.toString().substring(0, 12),
+                  imgsource: model![index].image.toString(),
+                  price: model![index].price.toString(),
+                );
+              },
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            );
+          }
         },
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       ),
     );
   }

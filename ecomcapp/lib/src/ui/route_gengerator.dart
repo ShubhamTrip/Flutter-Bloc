@@ -1,3 +1,4 @@
+import 'package:ecomcapp/src/ui/homescreen/homescreen.dart';
 import 'package:ecomcapp/src/ui/product_description/product_description.dart';
 import 'package:ecomcapp/src/ui/productsscreen/productsscreen.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ProductDescription());
       case Routes.productsscreen:
         return MaterialPageRoute(builder: (_) => ProductsScreen());
+      case Routes.homescreen:
+        return MaterialPageRoute(builder: (_) => Homescreen());
 
       default:
         return MaterialPageRoute(
