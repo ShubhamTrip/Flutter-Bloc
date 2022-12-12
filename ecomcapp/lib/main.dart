@@ -13,10 +13,12 @@ class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: Colors.amber,
       theme: theme(),
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.productsscreen,
       onGenerateRoute: RouteGenerator.generateRoute,
+      // I Made changes
     );
   }
 }
