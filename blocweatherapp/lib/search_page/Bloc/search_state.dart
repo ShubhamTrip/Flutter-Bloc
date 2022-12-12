@@ -1,20 +1,18 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../Model/model.dart';
 
-class SearchState extends Equatable{
+class SearchState extends Equatable {
   @override
   // TODO: implement props
   List<Object?> get props => [];
-
 }
 
-class WeatherInitialState extends SearchState{}
+class WeatherInitialState extends SearchState {}
 
-class WeatherIsLoading extends SearchState{}
+class WeatherIsLoading extends SearchState {}
 
-class WeatherIsLoaded extends SearchState{
+class WeatherIsLoaded extends SearchState {
   final _weather;
 
   WeatherIsLoaded(this._weather);
@@ -26,4 +24,4 @@ class WeatherIsLoaded extends SearchState{
   List<Object> get props => [_weather];
 }
 
-class WeatherIsNotLoaded extends SearchState{}
+class WeatherIsNotLoaded extends SearchState {}
