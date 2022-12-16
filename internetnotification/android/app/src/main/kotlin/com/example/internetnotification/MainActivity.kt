@@ -1,6 +1,0 @@
-package com.example.internetnotification
-
-import io.flutter.embedding.android.FlutterActivity
-
-class MainActivity: FlutterActivity() {
-}
