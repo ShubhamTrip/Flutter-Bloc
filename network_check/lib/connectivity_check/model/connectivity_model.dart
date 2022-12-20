@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:network_check/connectivity_check/cubit/connectivity_state.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:network_check/connectivity_check/bloc/internet_bloc.dart';
 
 import '../cubit/connectivity_cubit.dart';
+import '../cubit/connectivity_state.dart';
 
 connectivityProvider(Widget widget) {
+  final InternetConnectionChecker customInstance =
+      InternetConnectionChecker.createInstance(
+          checkInterval: const Duration(seconds: 1),
+          checkTimeout: const Duration(seconds: 1));
   return BlocProvider(
-    create: (context) => InternetCubit(),
+    create: (context) => InternetCubit(customInstance),
     child: widget,
   );
 }
@@ -25,20 +31,20 @@ connectivityListener(Widget widget) {
       });
 }
 
-connectivityBuilder(Widget widget) {
-  return BlocBuilder<InternetCubit, InternetState>(
-    builder: (context, state) {
-      if (state is NotConnectedState) {
-        return const Scaffold(
-          body: Center(
-            child: Text("Error"),
-          ),
-        );
-      }
-      return widget;
-    },
-  );
-}
+// connectivityBuilder(Widget widget) {
+//   return BlocBuilder<InternetCubit, InternetState>(
+//     builder: (context, state) {
+//       if (state is NotConnectedState) {
+//         return const Scaffold(
+//           body: Center(
+//             child: Text("Error"),
+//           ),
+//         );
+//       }
+//       return widget;
+//     },
+//   );
+// }
 
 snackBarMessage(
     {required BuildContext context,

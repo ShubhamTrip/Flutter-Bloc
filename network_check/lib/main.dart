@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:network_check/connectivity_check/model/connectivity_model.dart';
 
 void main() {
   runApp(const Main());
@@ -9,6 +10,12 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return connectivityProvider(MaterialApp(
+      home: connectivityListener(
+        const Scaffold(
+          body: Center(child: Text("Hello")),
+        ),
+      ),
+    ));
   }
 }
