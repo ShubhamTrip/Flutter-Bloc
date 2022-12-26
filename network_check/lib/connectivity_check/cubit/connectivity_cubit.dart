@@ -24,11 +24,10 @@ class InternetCubit extends Cubit<InternetState> {
         }
       }
     });
-  }
-
-  @override
-  Future<void> close() {
-    subscription.cancel();
-    return super.close();
+    @override
+    Future<void> close() {
+      subscription.cancel();
+      return super.close();
+    }
   }
 }

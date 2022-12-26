@@ -12,9 +12,7 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return connectivityProvider(MaterialApp(
       home: connectivityListener(
-        const Scaffold(
-          body: Center(child: Text("Hello")),
-        ),
+        Scaffold(body: connectivityBuilder(Center(child: Text("HEllo")))),
       ),
     ));
   }
